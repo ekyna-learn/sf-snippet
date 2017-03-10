@@ -1,0 +1,37 @@
+SnippetBundle\Entity\Snippet:
+    type: entity
+    table: null
+    repositoryClass: SnippetBundle\Repository\SnippetRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        description:
+            type: text
+            nullable: true
+        code:
+            type: text
+            nullable: true
+        createdAt:
+            type: datetime
+    oneToMany:
+        links:
+            targetEntity: SnippetBundle\Entity\Link
+            mappedBy: snippet
+            cascade: [persist, remove]
+            orphanRemoval: true
+    manyToOne:
+        technology:
+            targetEntity: SnippetBundle\Entity\Technology
+            joinColumn:
+                name: technology_id
+                referencedColumnName: id
+                nullable: false
+                onDelete: RESTRICT
+    lifecycleCallbacks: {  }

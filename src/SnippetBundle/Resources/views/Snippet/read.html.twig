@@ -1,0 +1,31 @@
+{% extends "SnippetBundle::base.html.twig" %}
+
+{% block content %}
+    <h2>{{ snippet.title }}</h2>
+    <div>
+        {{ snippet.description|nl2br }}
+    </div>
+    <br>
+    <pre>
+        {{- snippet.code -}}
+    </pre>
+    <ul>
+        {% for link in snippet.links %}
+        <li>
+            <a href="{{ link.url }}">
+                {{ link.caption }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <p class="text-right">
+        <a href="{{ path('snippet_update', {'technologyId': snippet.technology.id, 'snippetId': snippet.id}) }}"
+            class="btn btn-xs btn-warning">
+            Modifier
+        </a>
+        <a href="{{ path('snippet_delete', {'technologyId': snippet.technology.id, 'snippetId': snippet.id}) }}"
+            class="btn btn-xs btn-danger">
+            Supprimer
+        </a>
+    </p>
+{% endblock content %}

@@ -1,0 +1,19 @@
+snippet_create:
+    path:     /create
+    defaults:
+        _controller: SnippetBundle:Snippet:create
+
+snippet_read:
+    path:     /{snippetId}
+    defaults:
+        _controller: SnippetBundle:Snippet:read
+
+snippet_update:
+    path:     /{snippetId}/update
+    defaults:
+        _controller: SnippetBundle:Snippet:update
+
+snippet_delete:
+    path:     /{snippetId}/delete
+    defaults:
+        _controller: SnippetBundle:Snippet:delete

@@ -1,0 +1,16 @@
+{% extends "SnippetBundle::base.html.twig" %}
+
+
+{% block content %}
+    <h2>Créer un snippet</h2>
+
+    {% form_theme form.links "SnippetBundle:Snippet:_form_theme.html.twig" %}
+
+    {{ form(form) }}
+{% endblock content %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/snippet/js/snippet-links.js') }}"></script>
+{% endblock javascripts %}

@@ -1,0 +1,20 @@
+<p>
+    <a href="{{ path('technology_index') }}" class="logo">
+        Sf Snippet
+    </a>
+</p>
+<p>
+    <a href="{{ path('technology_create') }}" class="btn btn-primary">
+        Créer une technologie
+    </a>
+</p>
+<hr>
+<ul class="nav nav-pills nav-stacked">
+{% for techno in technologies %}
+    <li>
+        <a href="{{ path('technology_read', {'technologyId': techno.id}) }}">
+            {{ techno.title }}
+        </a>
+    </li>
+{% endfor %}
+</ul>

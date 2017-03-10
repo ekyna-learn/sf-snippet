@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="/favicon.ico">
+
+    <title>{% block title 'Blog' %}</title>
+
+    {% block stylesheets %}
+        <link href="{{ asset('bundles/snippet/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/snippet/css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/snippet/css/styles.css') }}" rel="stylesheet">
+    {% endblock stylesheets %}
+
+    <!--[if lt IE 9]>
+    <script src="{{ asset('bundles/snippet/js/html5shiv.min.js') }}"></script>
+    <script src="{{ asset('bundles/snippet/js/respond.min.js') }}"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div id="sidebar">
+    {{ render(controller('SnippetBundle:Layout:sidebar')) }}
+</div>
+<div id="main" class="container-fluid">
+    {% include "SnippetBundle:Layout:flashes.html.twig" %}
+
+    {% if technology is not defined and snippet is defined %}
+        {% set technology = snippet.technology %}
+    {% endif %}
+    <div class="page-header">
+        {% if technology is defined %}
+        <p class="actions pull-right">
+            <a href="{{ path('technology_read', {'technologyId': technology.id}) }}"
+               class="btn btn-default pull-right">
+                Liste des snippets
+            </a>
+            <a href="{{ path('snippet_create', {'technologyId': technology.id}) }}"
+               class="btn btn-primary pull-right">
+                Créer un snippet
+            </a>
+        </p>
+        {% endif %}
+        <h1>
+            {% block header_title %}{{ technology.title }}{% endblock %}
+        </h1>
+    </div>
+
+    {% block content %}{% endblock %}
+</div>
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/snippet/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('bundles/snippet/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/snippet/js/ie10-viewport-bug-workaround.js') }}"></script>
+{% endblock javascripts %}
+
+</body>
+</html>

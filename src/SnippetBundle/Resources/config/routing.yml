@@ -1,0 +1,12 @@
+technology:
+    resource: routing/technology.yml
+
+snippet:
+    resource: routing/snippet.yml
+    prefix: /{technologyId}
+    
+
+
+
+
+

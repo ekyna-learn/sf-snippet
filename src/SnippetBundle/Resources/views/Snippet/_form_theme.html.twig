@@ -1,0 +1,12 @@
+{% extends "bootstrap_3_horizontal_layout.html.twig" %}
+
+{% block collection_widget %}
+    <ul id="snippet_links" class="list-unstyled collection"
+        data-prototype="{{-
+        form_widget(form.vars.prototype)|e('html_attr')
+    -}}">
+        {% for child in form.children %}
+            <li>{{ form_widget(child) }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

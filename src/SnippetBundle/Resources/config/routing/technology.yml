@@ -1,0 +1,24 @@
+technology_index:
+    path:     /
+    defaults:
+        _controller: SnippetBundle:Technology:index
+
+technology_create:
+    path:     /create
+    defaults:
+        _controller: SnippetBundle:Technology:create
+
+technology_read:
+    path:     /{technologyId}
+    defaults:
+        _controller: SnippetBundle:Technology:read
+
+technology_update:
+    path:     /{technologyId}/update
+    defaults:
+        _controller: SnippetBundle:Technology:update
+
+technology_delete:
+    path:     /{technologyId}/delete
+    defaults:
+        _controller: SnippetBundle:Technology:delete

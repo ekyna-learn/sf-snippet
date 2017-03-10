@@ -1,0 +1,13 @@
+{% extends "SnippetBundle::base.html.twig" %}
+
+{% block header_title %}
+    Sf Snippet
+{% endblock %}
+
+{% block content %}
+
+    <h2>Derniers snippets ajoutés</h2>
+
+    {% include "SnippetBundle:Snippet:_list.html.twig" %}
+
+{% endblock content %}

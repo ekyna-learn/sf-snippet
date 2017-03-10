@@ -1,0 +1,19 @@
+{% extends "bootstrap_3_horizontal_layout.html.twig" %}
+
+{% block submit_row -%}
+    {% spaceless %}
+        <div class="form-group">
+            <div class="{{ block('form_label_class') }}"></div>
+            <div class="{{ block('form_group_class') }} form-actions">
+                {{ form_widget(form) }}
+
+                {% if form.parent.vars.cancel_path is not same as(null) %}
+                    <a href="{{ form.parent.vars.cancel_path }}"
+                        class="btn btn-default">
+                        Annuler
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock submit_row %}

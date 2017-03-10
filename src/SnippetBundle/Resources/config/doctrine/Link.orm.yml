@@ -1,0 +1,27 @@
+SnippetBundle\Entity\Link:
+    type: entity
+    table: null
+    repositoryClass: SnippetBundle\Repository\LinkRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        caption:
+            type: string
+            length: 255
+            nullable: true
+        url:
+            type: text
+    manyToOne:
+        snippet:
+            targetEntity: SnippetBundle\Entity\Snippet
+            inversedBy: links
+            joinColumn:
+                name: snippet_id
+                referencedColumnName: id
+                nullable: true
+                onDelete: CASCADE
+    lifecycleCallbacks: {  }

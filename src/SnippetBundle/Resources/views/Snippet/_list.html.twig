@@ -1,0 +1,31 @@
+<table class="table table-stripped">
+    <tr>
+        <th>Titre</th>
+        <th>Description</th>
+        <th></th>
+    </tr>
+    {% for snippet in snippets %}
+        {% set snippet_path = path('snippet_read', {'technologyId': snippet.technology.id, 'snippetId': snippet.id}) %}
+        <tr>
+            <td>
+                <a href="{{ snippet_path }}">
+                    {{ snippet.title }}
+                </a>
+            </td>
+            <td>
+                {{ snippet.description }}
+            </td>
+            <td>
+                <a href="{{ snippet_path }}" class="btn btn-xs btn-primary">
+                    Voir le code
+                </a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="3">
+                Aucun snippet créé
+            </td>
+        </tr>
+    {% endfor %}
+</table>

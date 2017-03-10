@@ -1,0 +1,9 @@
+services:
+#    snippet.example:
+#        class: SnippetBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    snippet.form_extension.form_type_extension:
+        class: SnippetBundle\Form\Extension\FormTypeExtension
+        tags:
+            - { name: form.type_extension, extended_type: 'Symfony\Component\Form\Extension\Core\Type\FormType' }

@@ -1,0 +1,16 @@
+{% extends "SnippetBundle::base.html.twig" %}
+
+{% block content %}
+    {% include "SnippetBundle:Snippet:_list.html.twig" %}
+
+    <p class="actions">
+        <a href="{{ path('technology_update', {'technologyId': technology.id}) }}"
+            class="btn btn-xs btn-warning">
+            Modifier la technologie
+        </a>
+        <a href="{{ path('technology_delete', {'technologyId': technology.id}) }}"
+            class="btn btn-xs btn-danger">
+            Supprimer la technologie
+        </a>
+    </p>
+{% endblock content %}
